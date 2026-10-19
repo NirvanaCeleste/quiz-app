@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="在线刷题">
+  <!-- 纸底满铺：maskable 裁剪时四角不会露透明 -->
+  <rect width="512" height="512" fill="#f3ecdf"/>
+  <!-- 三行作答：方框 + 横线，线宽统一，直角无圆角，跟全站图纸语法一致 -->
+  <g fill="none" stroke="#1a1815" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="112" y="148" width="56" height="56"/>
+    <path d="M200 176h200"/>
+    <rect x="112" y="228" width="56" height="56"/>
+    <path d="M200 256h200"/>
+    <rect x="112" y="308" width="56" height="56"/>
+    <path d="M200 336h156"/>
+  </g>
+  <!-- 唯一点缀：第一行答对的那一笔，用赭石 -->
+  <path d="M124 176l16 17 24-29" fill="none" stroke="#8c5a1e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

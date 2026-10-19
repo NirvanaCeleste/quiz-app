@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="在线刷题">
+  <rect width="512" height="512" fill="#f3ecdf"/>
+  <g fill="none" stroke="#1a1815" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="112" y="148" width="56" height="56"/>
+    <path d="M200 176h200"/>
+    <rect x="112" y="228" width="56" height="56"/>
+    <path d="M200 256h200"/>
+    <rect x="112" y="308" width="56" height="56"/>
+    <path d="M200 336h156"/>
+  </g>
+  <path d="M124 176l16 17 24-29" fill="none" stroke="#8c5a1e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

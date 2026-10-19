@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover：让刘海屏/安全区变量生效 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3ecdf" />
+    <script>
+      try {
+        const saved = localStorage.getItem('quiz.theme')
+        const hour = new Date().getHours()
+        const dark = saved ? saved === 'dark' : (hour >= 19 || hour < 7)
+        // 类名先于 CSS 挂好：暗色首帧不闪白，开屏动画也按主题配色
+        document.documentElement.classList.toggle('theme-dark', dark)
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#151210' : '#f3ecdf')
+      } catch {}
+    </script>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <!-- iOS 添加到主屏：全屏运行 + 站名 + 状态栏样式（苹果仍只认这两条 meta） -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="在线刷题" />
+    <meta name="application-name" content="在线刷题" />
+    <title>在线刷题</title>
+    <script type="module" crossorigin src="./assets/index-CDYR4cRk.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-fWAezou0.css">
+  </head>
+  <body>
+    <!-- 开屏：首帧即显示图标，300ms 后 150ms 淡出；纯 CSS 自行消失，弱网不挡操作 -->
+    <div id="splash" aria-hidden="true">
+      <img src="./icons/icon-192.png" alt="" width="96" height="96" />
+    </div>
+    <style>#splash{z-index:999;pointer-events:none;background:#f3ecdf;place-items:center;animation:.15s .3s forwards splash-hide;display:grid;position:fixed;inset:0}html.theme-dark #splash{background:#0d1117}#splash img{width:96px;height:96px;animation:.3s splash-pop}@keyframes splash-hide{to{opacity:0;visibility:hidden}}@keyframes splash-pop{0%{opacity:0;transform:scale(.92)}}</style>
+    <div id="root"></div>
+  </body>
+</html>
