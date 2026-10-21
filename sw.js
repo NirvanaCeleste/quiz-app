@@ -1,6 +1,9 @@
 // 生产环境 Service Worker：缓存应用外壳，装到主屏后二次启动可离线秒开。
 // 只在 npm run build 的产物里生效（注册见 src/pwa.js），开发态不缓存。
-const CACHE = 'quiz-app-v1'
+// 缓存名带注册 URL 上的构建号（?v=，见 pwa.js）：新构建注册进来时 URL 变化即触发 SW 更新，
+// activate 顺手清掉旧构建号的缓存——绕开 GitHub Pages 对 sw.js 长达 4 小时的 HTTP 缓存。
+const BUILD_ID = new URL(self.location.href).searchParams.get('v') ?? 'v1'
+const CACHE = `quiz-app-${BUILD_ID}`
 // 不随构建改名的固定外壳；assets 文件名带 hash，安装时从 index.html 里解析
 const STATIC_SHELL = ['./manifest.webmanifest', './favicon.svg', './icons/icon-192.png', './icons/icon-512.png']
 
